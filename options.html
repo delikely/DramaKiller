@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Drama killer Options</title>
+  <style>
+    #title {
+      color: black;
+      vertical-align: 10%;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 300%;
+    }
+  </style>
+  <link href="bootstrap.css" rel="stylesheet">
+  <script src="options.js"></script>
+  <!-- <script type="text/javascript" src="contentscript.js"></script>
+<script type="text/javascript" src="popup.js"></script>  -->
+  <script type="text/javascript" src="jquery.js"></script>
+  <!-- Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'self' blob: filesystem: chrome-extension-resource:". Either the 'unsafe-inline' keyword, a hash ('sha256-g497MRSDnvERfKQ3fYIQYaU+HWldX+NspXQQLNd03y0='), or a nonce ('nonce-...') is required to enable inline execution.
+ <script>
+  function load(){
+    console.log("load");
+  }
+</script> -->
+
+</head>
+
+<body>
+  <h1 id="title">设置</h1>
+
+  <div class="container">
+    <div style="height:5%"></div>
+    <div id="msg"></div>
+    <p>
+      <div class="page-header">
+        <h2>添加</h2>
+      </div>
+      <div class="add" background: #FFFFFF>
+        <form>
+          当前打开的剧目：
+          <select id="dramaList"></select> 连续观看集数：
+          <select id="episodeNum">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select> 悬念时长:
+          <input id="killer-time" type="text" class="input-medium search-query"  value="单位为秒">
+          <input id="btn-addItem" type="button" class="btn btn-small btn-primary" value="添加">
+        </form>
+      </div>
+    </p>
+
+    <p>
+      <div class="page-header">
+        <h2>删除</h2>
+      </div>
+      <div class="del">
+        <form>
+          本地的剧目：
+          <select id="dramaListLocal"></select>
+          <input id="btn-delItem" type="button" class="btn btn-small btn-danger" value="删除" >
+        </form>
+      </div>
+    </p>
+  </div>
+</body>
+
+</html>

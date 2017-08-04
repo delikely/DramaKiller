@@ -1,0 +1,10 @@
+20170720 开始编码 根据360的chrome开发手册 编写了第一个插件  弹窗popup
+20170721 继续学习 自定义新的标签页等
+20170722 开始编写Drama Killer插件
+20170726 完成获取爱奇艺视频的当前播放时间和总时间，期间解决setTimeout(function(){start()},10000)异步问题耗时两个晚上，第一个晚上发现问题，第二个晚上解决问题。
+20170730 完成option页面获取视频的标题及存储，期间解决Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'self' blob: filesystem: chrome-extension-resource:". Either the 'unsafe-inline' keyword, a hash ('sha256-g497MRSDnvERfKQ3fYIQYaU+HWldX+NspXQQLNd03y0='), or a nonce ('nonce-...') is required to enable inline execution.耗时较长，最后根据MarkDown Preview Plus Options的options.js页面解决了问题。并引入了bootstrap.css.
+20170731 实现消息传递机制，contentscript页面获得本地存储的数据。本地存储结构优化中 
+20170801 消息传递机制 （多个消息传送和一个监听 验证正确）与一对一 
+20170802 在到达悬念的时刻记录时间
+20170803 实现所有功能
+20170804 界面优化
