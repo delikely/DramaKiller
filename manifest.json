@@ -1,0 +1,43 @@
+{
+  "name": "Drama Killer",
+  "description": "Keep Calm and Carry On",
+  "version": "0.9",
+  "icons": {
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "64": "images/icon64.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "unlimitedStorage",
+    "notifications",
+    "*://*/*"
+  ],
+  "browser_action": {
+    "default_title": "Drama Killer",
+    "default_icon": "images/icon64.png",
+    "default_popup": "pages/popup/popup.html"
+  },
+  "options_page": "pages/options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.iqiyi.com/*"
+      ],
+      "js": [
+        "js/jquery.js",
+        "pages/contentscript/contentscript.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "pages/background/background.js"
+    ]
+  },
+  "web_accessible_resources": [
+    "pages/message.html"
+  ],
+  "manifest_version": 2
+}
