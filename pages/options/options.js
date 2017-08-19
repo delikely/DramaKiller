@@ -17,7 +17,7 @@
             if ($("#dramaList option:selected").text() != "") {
                 value = "";
                 if ($("#killer-time").val() > 120 && $("#killer-time").val() < 7200) {
-                    value += $("#dramaList option:selected").val() + '-' + $("#episodeNum option:selected").val() + "-" + $("#episodeNum option:selected").val() + "-" + $("#killer-time").val() + "-" + "1970/01/01 00:00:00";
+                    value += $("#dramaList option:selected").val() + '-' + $("#episodeNum option:selected").val() + "-" + (parseInt($("#episodeNum option:selected").val()) + 1) + "-" + $("#killer-time").val() + "-" + "1970/01/01 00:00:00" + "-1";
                     localStorage.setItem($("#dramaList option:selected").text(), value);
                     message('Ok,添加成功！');
                     $("#dramaListLocal option").remove();

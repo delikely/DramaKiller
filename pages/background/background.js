@@ -13,20 +13,25 @@ chrome.runtime.onMessage.addListener(
         if (request.dramaUpate) {
             for (var i = localStorage.length - 1; i >= 0; i--) {
                 var value = localStorage.getItem(request.dramaUpate);
-                var data = parseInt(value.split("-")[1]) + parseInt(value.split("第")[1].split("集")[0]) - 1;
-                var valuNew = value.split("-")[0] + "-" + value.split("-")[1] + "-" + data + "-" + value.split("-")[3] + "-" + value.split("-")[4];
+                var episode_status = value.split("-")[5];
+                var episode_once = value.split("-")[1];
+                var data = parseInt(value.split("-")[1]) + parseInt(value.split("第")[1].split("集")[0]);
+                if (episode_status == 0) {
+                    data += 1;
+                }
+                var valuNew = value.split("-")[0] + "-" + value.split("-")[1] + "-" + data + "-" + value.split("-")[3] + "-" + value.split("-")[4] + "-" + value.split("-")[5];
                 localStorage.setItem(request.dramaUpate, valuNew);
                 sendResponse({ dramaDetail: localStorage.getItem(request.dramaUpate) });
                 return;
             }
         }
-        if (request.closeDramaDateUpate) {
+        if (request.dramaDateUpate) {
             var data = getDate();
-            var value = localStorage.getItem(request.closeDramaDateUpate);
+            var value = localStorage.getItem(request.dramaDateUpate);
             setTimeout(function () {
-                var valuNew = value.split("-")[0] + "-" + value.split("-")[1] + "-" + value.split("-")[2] + "-" + value.split("-")[3] + "-" + data;
-                localStorage.setItem(request.closeDramaDateUpate, valuNew);
-                sendResponse({ dramaDetail: localStorage.getItem(request.closeDramaDateUpate) });
+                var valuNew = value.split("-")[0] + "-" + value.split("-")[1] + "-" + value.split("-")[2] + "-" + value.split("-")[3] + "-" + data + "-" + value.split("-")[5];
+                localStorage.setItem(request.dramaDateUpate, valuNew);
+                sendResponse({ dramaDetail: localStorage.getItem(request.dramaDateUpate) });
             }, 1000);
 
             return;
@@ -34,9 +39,20 @@ chrome.runtime.onMessage.addListener(
         if (request.episodePlus) {
             var value = localStorage.getItem(request.episodePlus);
             var episodeNum = parseInt(value.split("集")[0].split("第")[1]) + 1;
-            var valuNew = "第" + episodeNum + "集" + value.split("集")[1];
+            var valuNew = "第" + episodeNum + "集" + "-" + value.split("-")[1] + "-" + value.split("-")[2] + "-" + value.split("-")[3] + "-" + value.split("-")[4] + "-" + value.split("-")[5];
             localStorage.setItem(request.episodePlus, valuNew);
             sendResponse({ dramaDetail: localStorage.getItem(request.episodePlus) });
+            return;
+        }
+        if (request.dramaStatusUpdate) {
+            var value = localStorage.getItem(request.dramaStatusUpdate.split("-")[0]);
+            var data = "1";
+            if (request.dramaStatusUpdate.split("-")[1] == "0") {
+                data = "0";
+            }
+            var valuNew = value.split("-")[0] + "-" + value.split("-")[1] + "-" + value.split("-")[2] + "-" + value.split("-")[3] + "-" + value.split("-")[4] + "-" + data;
+            localStorage.setItem(request.dramaStatusUpdate.split("-")[0], valuNew);
+            sendResponse({ dramaDetail: localStorage.getItem(request.dramaStatusUpdate.split("-")[0]) });
             return;
         }
     });

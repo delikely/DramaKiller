@@ -1,6 +1,6 @@
 
 function click(e) {
-   document.getElementById("msg").innerHTML="哈哈，你关不掉我的！";
+   document.getElementById("msg").innerHTML="别看剧了，去寻找诗和远方吧！";
 } 
 
 document.addEventListener('DOMContentLoaded', function () {

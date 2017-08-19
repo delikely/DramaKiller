@@ -1,7 +1,7 @@
 {
   "name": "Drama Killer",
   "description": "Keep Calm and Carry On",
-  "version": "0.9",
+  "version": "1.1",
   "icons": {
     "32": "images/icon32.png",
     "48": "images/icon48.png",
@@ -39,5 +39,6 @@
   "web_accessible_resources": [
     "pages/message.html"
   ],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query"
 }
